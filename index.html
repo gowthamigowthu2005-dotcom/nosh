@@ -3,193 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Restaurant</title>
+  <title>Nosh Website</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #fafafa;
-      color: #333;
+      background: #f9f9f9;
+      min-width: 1200px;  /* 👈 Always desktop width */
     }
 
-    header {
-      background: #ff9800;
-      color: white;
-      padding: 15px 40px;
+    /* Navbar */
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
+      background: orange;
+      color: white;
     }
 
-    header img {
-      height: 70px;
-      border-radius: 8px;
+    .navbar img {
+      height: 40px;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
       text-decoration: none;
-      color: white;
-      margin-left: 25px;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: #444;
+      border-radius: 5px;
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background: #fff3e0;
+    }
+
+    section:nth-child(odd) {
+      background: #ffe0b2;
+    }
+
+    h1, h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    p {
+      color: #555;
       font-size: 18px;
-      font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Hero Section */
-    #hero {
+    /* Image row (always side by side, no wrapping) */
+    .image-row {
       display: flex;
-      flex-wrap: wrap;        /* ✅ stack automatically on small screens */
-      align-items: center;
       justify-content: center;
       gap: 20px;
-      padding: 40px;
-      background: #ffe786;
       margin-top: 20px;
+      flex-wrap: nowrap;    /* 👈 Never wraps */
     }
 
-    #hero div {
-      flex: 1 1 300px;        /* ✅ minimum 300px block */
-      color: black;
-    }
-
-    #hero h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    #hero p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    #hero img {
-      flex: 1 1 300px;        /* ✅ scales automatically */
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-    }
-
-    /* Popular Dishes */
-    #pp {
-      text-align: center;
-      margin: 30px 0;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .dish-container {
-      display: flex;
-      flex-wrap: wrap;       /* ✅ wrap dishes on small screens */
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .dish {
-      flex: 1 1 200px;       /* ✅ min 200px per card */
-      max-width: 220px;
-      text-align: center;
-      padding: 15px;
-      background: pink;
-      border-radius: 12px;
-    }
-
-    .dish img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: black;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;       /* ✅ stack neatly on small screens */
-      justify-content: space-evenly;
-      padding: 20px;
-      gap: 20px;
-    }
-
-    footer section {
-      flex: 1 1 200px;
+    .image-row img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="swi.jpg" alt="Logo">
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section id="hero">
-    <div>
-      <h1>Delicious Food, Delivered Fast</h1>
-      <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
-      <button>Order Now</button>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Swiggy_logo.png" alt="Logo">
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-    <img src="food.jpg" alt="Delicious Food">
+  </nav>
+
+  <!-- Sections -->
+  <section id="home">
+    <h1>Delicious Food, Delivered Fast</h1>
+    <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
   </section>
 
   <section id="menu">
-    <h2 id="pp">Popular Dishes</h2>
-    <div class="dish-container">
-      <div class="dish">
-        <img src="burger.webp" alt="Burger">
-        <h3>Burger</h3>
-        <p>₹100</p>
-      </div>
-      <div class="dish">
-        <img src="pizaa.webp" alt="Pizza">
-        <h3>Pizza</h3>
-        <p>₹150</p>
-      </div>
-      <div class="dish">
-        <img src="biriyani.webp" alt="Biryani">
-        <h3>Biryani</h3>
-        <p>₹200</p>
-      </div>
-      <div class="dish">
-        <img src="chicken.webp" alt="Chicken Curry">
-        <h3>Chicken Curry</h3>
-        <p>₹120</p>
-      </div>
+    <h2>Popular Dishes</h2>
+    <p>Our best-selling items:</p>
+
+    <!-- Images side by side -->
+    <div class="image-row">
+      <img src="https://www.pngall.com/wp-content/uploads/8/Burger-PNG-File.png" alt="Burger">
+      <img src="https://www.pngall.com/wp-content/uploads/2016/05/Pizza-Free-Download-PNG.png" alt="Pizza">
+      <img src="https://www.pngall.com/wp-content/uploads/5/Biryani-PNG-Image.png" alt="Biryani">
+      <img src="https://www.pngall.com/wp-content/uploads/8/Chicken-Curry-PNG-Free-Download.png" alt="Chicken Curry">
     </div>
   </section>
 
-  <footer>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We deliver delicious food at doorstep</p>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We deliver delicious food at your doorstep with love and care.</p>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: syedamaanu@gmail.com</p>
-    </section>
-
-    <section id="follow">
-      <h2>Follow Us</h2>
-      <p>Instagram: @swiggy</p>
-    </section>
-  </footer>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: example@email.com | Phone: ‪+91 9876543210‬</p>
+  </section>
 
 </body>
 </html>
