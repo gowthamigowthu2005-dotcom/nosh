@@ -1,140 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Restaurant</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background-color: #fafafa;
-      color: #333;
+      background: #fafafa;
+      color: #222;
     }
 
+    /* Header */
     header {
       background: #ff9800;
       color: white;
-      padding: 15px 40px;
+      padding: 12px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    header img { height: 56px; border-radius: 8px; flex: 0 0 auto; }
+    nav { display: flex; gap: 18px; flex: 0 0 auto; }
+    nav a { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; }
+    nav a:hover { text-decoration: underline; }
+
+    /* HERO WRAPPER - allows horizontal scroll on small screens */
+    .hero-wrap {
+      overflow-x: auto;                 /* allow horizontal scrolling instead of cutting off */
+      -webkit-overflow-scrolling: touch;/* smooth scroll on iOS */
     }
 
-    header img {
-      height: 60px;
-      border-radius: 8px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      margin-left: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Hero Section */
+    /* Hero content (no wrap) */
     #hero {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: nowrap;   /* keep side-by-side */
       align-items: center;
-      background: #ffe786;
-      padding: 40px;
       gap: 20px;
+      padding: 28px;
+      background: #ffe786;
     }
 
-    #hero div {
-      flex: 1;
-      color: black;
+    /* Keep each hero child at a readable minimum width so layout doesn't collapse */
+    .hero-content {
+      flex: 0 0 auto;      /* don't grow/shrink to wrap */
+      min-width: 300px;    /* ensures text area stays readable */
+      max-width: 600px;
     }
+    .hero-content h1 { font-size: 26px; margin-bottom: 10px; }
+    .hero-content p { font-size: 16px; margin-bottom: 14px; }
 
-    #hero h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    .hero-image {
+      flex: 0 0 auto;
+      min-width: 300px;    /* keeps image side-by-side */
+      max-width: 520px;
     }
-
-    #hero p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    #hero img {
-      flex: 1;
-      max-width: 100%;
+    .hero-image img {
+      width: 100%;
       height: auto;
-      border-radius: 15px;
-      padding: 5px;
+      display: block;
+      border-radius: 14px;
     }
 
     button {
-      border: 2px solid;
-      background-color: rgb(222, 218, 219);
-      width: 100px;
-      height: 35px;
+      border: 2px solid #a9a9a9;
+      background-color: #dedadb;
+      padding: 8px 14px;
       cursor: pointer;
+      font-weight: 700;
+      border-radius: 6px;
     }
 
-    /* Popular Dishes */
-    #pp {
-      text-align: center;
-      margin: 20px 0;
-    }
+    /* Popular Dishes - horizontal scroll to keep same row on small screens */
+    #menu { padding: 18px 14px; }
+    #pp { text-align: center; margin-bottom: 14px; font-size: 20px; }
 
-    .dish-container {
+    .dish-strip {
       display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      background-color: pink;
-      padding: 20px;
-      gap: 20px;
-    }
-
-    .dish {
-      text-align: center;
-      flex: 1 1 200px;
-      max-width: 220px;
-      padding: 10px;
-      background: #fff;
+      gap: 16px;
+      padding: 12px;
+      overflow-x: auto;               /* horizontal scroll if screen is narrow */
+      -webkit-overflow-scrolling: touch;
+      align-items: stretch;
+      background-color: #ffd6e0;      /* light pink background as original */
       border-radius: 10px;
     }
 
-    .dish img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      margin-bottom: 10px;
-    }
-
-    .dish h3, .dish p {
+    .dish {
+      flex: 0 0 auto;                 /* don't wrap; keep in a single row */
+      min-width: 180px;               /* controls item width */
+      max-width: 220px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
       text-align: center;
-      margin: 5px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
 
-    /* Footer */
+    .dish img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 8px; display:block; }
+
+    .dish h3 { font-size: 16px; margin-bottom: 6px; }
+    .dish p { font-size: 15px; color: #444; }
+
+    /* Footer - keep same layout; horizontal scroll if needed */
     footer {
-      background-color: black;
-      color: white;
+      background: #000;
+      color: #fff;
+      padding: 18px;
+    }
+    .footer-strip {
       display: flex;
+      gap: 22px;
       justify-content: space-evenly;
-      padding: 20px;
-      flex-wrap: wrap;
-      gap: 20px;
+      overflow-x: auto;               /* keep same arrangement on small screens */
+      -webkit-overflow-scrolling: touch;
+      align-items: flex-start;
     }
+    footer section { min-width: 170px; flex: 0 0 auto; text-align: center; }
+    footer h2 { font-size: 18px; margin-bottom: 6px; }
+    footer p { font-size: 14px; color: #ddd; }
 
-    footer section {
-      text-align: center;
-    }
+    /* small niceties */
+    ::-webkit-scrollbar { height: 8px; } /* visible horizontal scrollbar */
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -149,33 +142,45 @@
     </nav>
   </header>
 
-  <section id="hero">
-    <div>
-      <h1>Delicious Food, Delivered Fast</h1>
-      <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
-      <button>Order Now</button>
-    </div>
-    <img src="food.jpg" alt="Delicious Food">
-  </section>
+  <!-- HERO: wrapped in .hero-wrap so page doesn't cut off on small screens -->
+  <div class="hero-wrap">
+    <section id="hero">
+      <div class="hero-content">
+        <h1>Delicious Food, Delivered Fast</h1>
+        <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
+        <button>Order Now</button>
+      </div>
 
+      <div class="hero-image">
+        <img src="food.jpg" alt="Delicious Food">
+      </div>
+    </section>
+  </div>
+
+  <!-- MENU -->
   <section id="menu">
     <h2 id="pp">Popular Dishes</h2>
-    <div class="dish-container">
+
+    <!-- dish-strip keeps all dishes in one horizontal row; user can scroll on mobile -->
+    <div class="dish-strip">
       <div class="dish">
         <img src="burger.webp" alt="Burger">
         <h3>Burger</h3>
         <p>₹100</p>
       </div>
+
       <div class="dish">
         <img src="pizaa.webp" alt="Pizza">
         <h3>Pizza</h3>
         <p>₹150</p>
       </div>
+
       <div class="dish">
         <img src="biriyani.webp" alt="Biryani">
         <h3>Biryani</h3>
         <p>₹200</p>
       </div>
+
       <div class="dish">
         <img src="chicken.webp" alt="Chicken Curry">
         <h3>Chicken Curry</h3>
@@ -185,21 +190,24 @@
   </section>
 
   <footer>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We deliver delicious food at doorstep</p>
-    </section>
+    <div class="footer-strip">
+      <section id="about">
+        <h2>About Us</h2>
+        <p>We deliver delicious food at doorstep</p>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: syedamaanu@gmail.com</p>
-    </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: syedamaanu@gmail.com</p>
+      </section>
 
-    <section id="follow">
-      <h2>Follow Us</h2>
-      <p>Instagram: @swiggy</p>
-    </section>
+      <section id="follow">
+        <h2>Follow Us</h2>
+        <p>Instagram: @swiggy</p>
+      </section>
+    </div>
   </footer>
 
 </body>
 </html>
+
