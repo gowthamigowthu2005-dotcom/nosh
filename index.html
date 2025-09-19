@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,58 +6,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Restaurant</title>
   <style>
-  /* Make hero section responsive */
-@media (max-width: 768px) {
-  #hero {
-    flex-direction: column; /* stack vertically */
-    text-align: center;
-    height: auto;
-    padding: 20px;
-  }
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  #hero img {
-    width: 100%;
-    max-width: 300px;
-    margin: 20px 0 0 0;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #fafafa;
+      color: #333;
+    }
 
-  #del {
-    margin: 20px auto 0 auto;
-    float: none;
-  }
+    header {
+      background: #ff9800;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  .dish-container {
-    flex-direction: column; /* stack dishes vertically */
-    align-items: center;
-  }
+    header img {
+      height: 70px;
+      border-radius: 8px;
+    }
 
-  .dish {
-    margin: 15px 0;
-  }
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin-left: 25px;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-  header {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 20px;
-  }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-  nav a {
-    margin: 10px 15px 0 0;
-    display: inline-block;
-  }
+    
+    #hero {
+      display: flex;
+      align-items: center;
+      
+      padding: 50px;
+      background: #ffe786;
+      flex-direction:row;
+      margin-top: 20px;
+      height: 350px;}
 
-  #abc {
-    flex-direction: column;
-    text-align: center;
-  }
+    #hero div {
+      max-width: 600px;
+      height: 150px;
+      color: black;
+      
+    }
 
-  #abc section {
-    margin-bottom: 20px;
-  }
+    #hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    #hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+/*     #hero img {
+      width: 400px;
+      height: 220px;
+      border-radius: 15px;
+      margin-top: 20px;
+      padding: 5px;
+    } */
+
+
+   #pp{
+      text-align: center;
+     
+      margin-bottom: 20px;
+    }
+/* .dish img{
+        width:180px;
+        height: 190px;
+        border-radius: 20px;
+   position: relative;
+   display: flex;
+   margin-top: 10px;
+   */
+  
+   
 }
-</style>
+.dish-container{
+    display: flex;
+    width: auto;
+   justify-content: space-evenly;
+   background-color: pink;
+  flex-wrap:wrap;
+}
+.dish{
+   padding: 20px;
+   margin: 10px;
+  text-align: center;
+  flex-wrap: nowrap;
+ 
+  
+}
+
+
+
+   
+button{
+    border: 2px solid ;
+    background-color:rgb(222, 218, 219);
+    width: 80px;
+    height:28px;
+    padding: 5px;
+}
+  .dish h3,p { 
+    text-align:center;
+
+  }
+  
+ 
+     #del{
+      width: 350px;
+      height: 150px;
+      margin-left: 300px;
+     
+     
+     }
+     fotter{
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+     }
+  </style>
 </head>
 <body>
+
+  
   <header>
     <img src="swi.jpg" alt="Logo">
     <nav>
@@ -71,47 +164,66 @@
     <div>
       <h1>Delicious Food, Delivered Fast</h1>
       <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
-      <button>Order Now</button>
+    <button>Order Now </button>
     </div>
-    <img src="food.jpg" alt="Delicious Food">
+   
+    <img src="food.jpg" alt="Delicious Food" id="del">
+  
   </section>
 
+ 
+  
   <section id="menu">
-    <h2 id="pp">Popular Dishes</h2>
+<h2 id="pp">Popular Dishes </h2>
     <div class="dish-container">
       <div class="dish">
         <img src="burger.webp" alt="Burger">
-        <h3>Burger</h3>
-        <p>₹100</p>
+        <h3 >Burger</h3>
+        <p >₹100</p>
       </div>
       <div class="dish">
         <img src="pizaa.webp" alt="Pizza">
         <h3>Pizza</h3>
-        <p>₹150</p>
+        <p  >₹150</p>
       </div>
       <div class="dish">
         <img src="biriyani.webp" alt="Biryani">
-        <h3>Biryani</h3>
-        <p>₹200</p>
+        <h3 >Biryani</h3>
+        <p  ></p>₹200</p>
       </div>
       <div class="dish">
         <img src="chicken.webp" alt="Chicken Curry">
-        <h3>Chicken Curry</h3>
-        <p>₹120</p>
+        <h3 >Chicken Curry</h3>
+        <p >₹120</p>
       </div>
     </div>
   </section>
+<footer >
 
-  <footer>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We deliver delicious food at doorstep</p>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We deliver delicious food at doorstep</p>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: syedamaanu@gmail.com</p>
-    </sectio
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: syedamaanu@gmail.com</p>
+  </section>
+
+  
+  <section id="follow">
+    <h2>Follow Us</h2>
+    <p>Instagram: @swiggy</p>
+  </section>
+
+
+ </footer>
+
+</body>
+</html>
+
+
 
 
 
