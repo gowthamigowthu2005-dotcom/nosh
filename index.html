@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Restaurant</title>
   <style>
-   
     * {
       margin: 0;
       padding: 0;
@@ -14,7 +13,6 @@
 
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
       background-color: #fafafa;
       color: #333;
     }
@@ -22,10 +20,11 @@
     header {
       background: #ff9800;
       color: white;
-      padding: 15px 40px;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     header img {
@@ -36,7 +35,7 @@
     nav a {
       text-decoration: none;
       color: white;
-      margin-left: 25px;
+      margin-left: 20px;
       font-size: 18px;
       font-weight: bold;
     }
@@ -45,197 +44,167 @@
       text-decoration: underline;
     }
 
-    
+    /* HERO */
     #hero {
       display: flex;
       align-items: center;
-      
-      padding: 50px;
+      justify-content: space-between;
+      padding: 20px;
       background: #ffe786;
-      flex-direction:row;
-      margin-top: 20px;
-      height: 350px;}
+      flex-wrap: nowrap;
+      overflow-x: auto; /* horizontal scroll on mobile if needed */
+    }
 
     #hero div {
       max-width: 600px;
-      height: 150px;
-      color: black;
-      
+      flex: 0 0 auto;
     }
 
     #hero h1 {
-      font-size: 36px;
+      font-size: 28px;
       margin-bottom: 10px;
     }
 
     #hero p {
-      font-size: 18px;
-      margin-bottom: 20px;
+      font-size: 16px;
+      margin-bottom: 10px;
     }
 
     #hero img {
-      width: 400px;
-      height: 220px;
-      border-radius: 15px;
-      margin-top: 20px;
-      padding: 5px;
-    }
-
-
-   #pp{
-      text-align: center;
-     
-      margin-bottom: 20px;
-    }
-.dish img{
-        width:180px;
-        height: 190px;
-        border-radius: 20px;
-   position: relative;
-   display: flex;
-   margin-top: 10px;
-  
-  
-   
-}
-.dish-container{
-    display: flex;
-    width: auto;
-   justify-content: space-evenly;
-   background-color: pink;
-  flex-wrap:np-wrap;
-}
-.dish{
-   padding: 20px;
-   margin: 10px;
-  text-align: center;
-  flex-wrap: nowrap;
- 
-  
-}
-
-section {
-      padding: 40px 20px;
-      
-    }
-
-   
-button{
-    border: 2px solid ;
-    background-color:rgb(222, 218, 219);
-    width: 80px;
-    height:28px;
-    padding: 5px;
-}
-  .dish h3,p { 
-    text-align:center;
-
-  }
-  
- 
-     #del{
       width: 350px;
-      height: 150px;
-      margin-left: 300px;
-     
-    
-     }
-     footer {
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start; 
-    padding: 30px 20px;
-    flex-wrap: wrap;
-      margin-top:15px;
-}
+      height: auto;
+      border-radius: 15px;
+      flex: 0 0 auto;
+    }
 
-footer section {
-    
-    margin: 10px;
-}
+    button {
+      border: 2px solid;
+      background-color: rgb(222, 218, 219);
+      width: 100px;
+      height: 35px;
+      cursor: pointer;
+    }
 
-footer h2 {
-    margin-bottom: 10px;
-}
+    /* MENU */
+    #pp {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 24px;
+    }
 
-    
+    .dish-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto; /* horizontal scroll on mobile */
+      padding: 10px;
+      gap: 20px;
+      justify-content: flex-start;
+      background-color: pink;
+    }
+
+    .dish {
+      text-align: center;
+      flex: 0 0 auto;
+    }
+
+    .dish img {
+      width: 180px;
+      height: 180px;
+      border-radius: 15px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    footer section {
+      min-width: 150px;
+    }
+
+    footer h2 {
+      margin-bottom: 10px;
+    }
+
+    /* Optional: remove scrollbars for smooth look on mobile */
+    .dish-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .dish-container::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body>
 
-  
-  <header>
-    <img src="swi.jpg" alt="Logo">
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<header>
+  <img src="swi.jpg" alt="Logo">
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-  <section id="hero">
-    <div>
-      <h1>Delicious Food, Delivered Fast</h1>
-      <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
-    <button>Order Now </button>
+<section id="hero">
+  <div>
+    <h1>Delicious Food, Delivered Fast</h1>
+    <p>Order your favorite meals and enjoy fresh, tasty food at your doorstep!</p>
+    <button>Order Now</button>
+  </div>
+  <img src="food.jpg" alt="Delicious Food" id="del">
+</section>
+
+<section id="menu">
+  <h2 id="pp">Popular Dishes</h2>
+  <div class="dish-container">
+    <div class="dish">
+      <img src="burger.webp" alt="Burger">
+      <h3>Burger</h3>
+      <p>₹100</p>
     </div>
-   
-    <img src="food.jpg" alt="Delicious Food" id="del">
-  
-  </section>
-
- 
-  
-  <section id="menu">
-<h2 id="pp">Popular Dishes </h2>
-    <div class="dish-container">
-      <div class="dish">
-        <img src="burger.webp" alt="Burger">
-        <h3 >Burger</h3>
-        <p >₹100</p>
-      </div>
-      <div class="dish">
-        <img src="pizaa.webp" alt="Pizza">
-        <h3>Pizza</h3>
-        <p  >₹150</p>
-      </div>
-      <div class="dish">
-        <img src="biriyani.webp" alt="Biryani">
-        <h3 >Biryani</h3>
-        <p  ></p>₹200</p>
-      </div>
-      <div class="dish">
-        <img src="chicken.webp" alt="Chicken Curry">
-        <h3 >Chicken Curry</h3>
-        <p >₹120</p>
-      </div>
+    <div class="dish">
+      <img src="pizaa.webp" alt="Pizza">
+      <h3>Pizza</h3>
+      <p>₹150</p>
     </div>
-  </section>
-<footer >
+    <div class="dish">
+      <img src="biriyani.webp" alt="Biryani">
+      <h3>Biryani</h3>
+      <p>₹200</p>
+    </div>
+    <div class="dish">
+      <img src="chicken.webp" alt="Chicken Curry">
+      <h3>Chicken Curry</h3>
+      <p>₹120</p>
+    </div>
+  </div>
+</section>
 
+<footer>
   <section id="about">
     <h2>About Us</h2>
     <p>We deliver delicious food at doorstep</p>
   </section>
-
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: syedamaanu@gmail.com</p>
   </section>
-
-  
   <section id="follow">
     <h2>Follow Us</h2>
     <p>Instagram: @swiggy</p>
   </section>
-
-
- </footer>
+</footer>
 
 </body>
 </html>
